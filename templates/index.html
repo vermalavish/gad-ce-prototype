@@ -1,13 +1,140 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>GAD-CE | Incident Response Lab</title><link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"><style>body{background:#f3f5f7;color:#17212b}.content{background:#f3f5f7;margin-left:235px}.sidebar{background:#12202c;border-color:#263b4d}.content>header{background:#fff;border-color:#dce3e9;backdrop-filter:none}.crumb,.top{color:#657586}.crumb strong{color:#273747}.panel,.metrics article{background:#fff;border-color:#dce3e9;box-shadow:0 2px 8px #24384a0d}.safe-banner{background:#eef5f7;border-color:#cfe0e5;color:#45606d}.safe-banner b{color:#177c82;border-color:#c5dade}.eyebrow{color:#29717e}.intro>div>p:last-child,.metrics small,.note{color:#667786}.metrics strong,h1,.panel-head h2{color:#182635}.primary{background:#247b83;box-shadow:none}.ghost,.outline{background:#fff;border-color:#a8bac7;color:#365162}.state,.tag{color:#537080;border-color:#ccdae3}.agent{background:#f8fafb;border-color:#d7e2e8}.attacker{border-top-color:#be5b5c}.defender{border-top-color:#248b91}.case-action{background:#f7fafb;color:#2f6472;border-color:#b8cad3}.outcome.empty{background:#eef2f5;color:#617384}.topology>div{background:#f7fafb;border-color:#c5d6de}.sidebar nav a.active,.sidebar nav a:hover{background:#214052}.sidebar nav a{color:#b8cad9}.sidebar-foot p{color:#7890a5}</style></head><body><div class="app-shell">
-<aside class="sidebar"><a class="brand" href="#"><b>IR</b><span>GAD<span>—</span>CE<small>INCIDENT RESPONSE LAB</small></span></a><nav><a class="active" href="#overview">▦ <span>Dashboard</span></a><a href="#operations">◉ <span>Simulation desk</span><i>LAB</i></a><a href="#twin">◇ <span>Test environment</span></a><a href="#governance">✓ <span>Review queue</span></a><a href="#eventLog">≡ <span>Activity log</span></a></nav><div class="sidebar-foot"><div class="workspace"><b>AL</b><span><strong>Analyst workspace</strong><small>Training environment</small></span>⌄</div><p>CAPSTONE PROTOTYPE · 2026</p></div></aside>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>GAD-CE | Security Operations Console</title><link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"></head><body><div class="app-shell">
+<aside class="sidebar"><a class="brand" href="#"><b>G</b><span>GAD<span>—</span>CE<small>SECURITY LAB</small></span></a><nav><a class="active" href="#overview">▦ <span>Overview</span></a><a href="#operations">◉ <span>Operations</span><i>LIVE</i></a><a href="#twin">◇ <span>Digital twin</span></a><a href="#governance">✓ <span>Governance</span></a><a href="#eventLog">≡ <span>Event records</span></a></nav><div class="sidebar-foot"><div class="workspace"><b>AL</b><span><strong>Analyst workspace</strong><small>Prototype environment</small></span>⌄</div><p>v0.9.4 · RESEARCH BUILD</p></div></aside>
+
 <div class="content"><header><div class="crumb">WORKSPACES <span>/</span> <strong>SIMULATION OPERATIONS</strong></div><div class="top"><span class="environment"><i></i> ISOLATED LAB</span><span id="clock">--:--:-- UTC</span><button>⌁<sup>2</sup></button><b class="avatar">AL</b></div></header><main>
-<section class="intro" id="overview"><div><p class="eyebrow">GAD-CE / CYBERSECURITY INCIDENT RESPONSE LAB</p><h1>Practice security <em>decisions safely.</em></h1><p>Run controlled scenarios, review a recommended response, and record an analyst decision in one workspace.</p></div><div class="intro-actions"><button class="primary" id="runBtn">▶ Start scenario</button><button class="ghost" id="resetBtn">Clear session</button></div></section>
-<div class="safe-banner"><b>TRAINING DATA</b><span>This project uses sample scenarios and simulated scores for learning and demonstration. It does not access real systems.</span><button>Project scope →</button></div>
-<section class="metrics"><article><div><span>EXPOSURE INDEX</span><strong id="risk">00<sup>/100</sup></strong><small id="riskNote">No active scenario</small></div><b class="red">⌁</b></article><article><div><span>SIMULATION HEALTH</span><strong id="status">Ready</strong><small>Virtual environment</small></div><b class="green">◌</b></article><article><div><span>SIMULATION RUNS</span><strong id="runs">00</strong><small>Current workspace</small></div><b class="blue">▷</b></article><article><div><span>REVIEW DECISIONS</span><strong id="decisions">0 / 0</strong><small>Approved / rejected</small></div><b class="cyan">✓</b></article></section>
-<section class="case-grid" id="cases"><article class="panel incident-panel"><div class="panel-head"><div><p class="eyebrow">INCIDENT TRACKER</p><h2>Current training cases</h2></div><span class="tag muted"><b id="caseTotal">0</b> CASES</span></div><div class="case-columns"><span>CASE / SUMMARY</span><span>SEVERITY</span><span>STATUS</span><span>OWNER</span><span></span></div><div id="incidentList" class="incident-list"><div class="empty-cases">No cases yet. Start a scenario to create a practice incident.</div></div></article><article class="panel risk-panel"><div class="panel-head"><div><p class="eyebrow">RISK BREAKDOWN</p><h2>What influenced this score?</h2></div><span class="tag muted">PRACTICE DATA</span></div><div id="riskBreakdown" class="risk-breakdown"><div><span>Threat severity</span><b>—</b></div><div><span>Asset sensitivity</span><b>—</b></div><div><span>Exposure context</span><b>—</b></div><div class="reduction"><span>Defense readiness</span><b>—</b></div></div><p class="note">This simple breakdown helps explain the training score. It is not a production risk model.</p></article></section>
-<section class="analytics-grid"><article class="panel analytics"><div class="panel-head"><div><p class="eyebrow">SESSION SUMMARY</p><h2>Practice results</h2></div><span class="tag muted">CURRENT SESSION</span></div><div class="analytics-stats"><div><strong id="successRate">0%</strong><span>Response success</span></div><div><strong id="avgAttack">0</strong><span>Avg. threat score</span></div><div><strong id="avgDefense">0</strong><span>Avg. response score</span></div></div><div class="domain-chart" id="domainChart"><div><span>Identity</span><i><b></b></i><em>0</em></div><div><span>Network</span><i><b></b></i><em>0</em></div><div><span>Endpoint</span><i><b></b></i><em>0</em></div><div><span>Availability</span><i><b></b></i><em>0</em></div></div></article><article class="panel process"><p class="eyebrow">CASE WORKFLOW</p><h2>How a case is handled</h2><ol><li><b>01</b><span><strong>Detect</strong><small>A practice signal opens a case</small></span></li><li><b>02</b><span><strong>Review</strong><small>Compare the threat and response</small></span></li><li><b>03</b><span><strong>Decide</strong><small>Record the analyst's choice</small></span></li><li><b>04</b><span><strong>Close</strong><small>Finish the practice case</small></span></li></ol></article></section>
-<section class="work-grid" id="operations"><article class="panel sim"><div class="panel-head"><div><p class="eyebrow">SCENARIO WORKSPACE</p><h2>Threat and response review</h2></div><span class="state"><i></i> READY</span></div><div class="agent-flow"><div class="agent attacker"><div>◆ <small>01</small></div><p>SIMULATED THREAT</p><h3>Scenario briefing</h3><span id="attackText">No training scenario selected.</span><label>Threat level <b id="attackScore">—</b></label><div class="mini"><i id="attackMini"></i></div></div><div class="versus">│<b>VS</b>│</div><div class="agent defender"><div>◈ <small>02</small></div><p>RESPONSE PLAN</p><h3>Recommended action</h3><span id="defenseText">No response plan selected.</span><label>Readiness level <b id="defenseScore">—</b></label><div class="mini"><i id="defenseMini"></i></div></div></div><div class="panel-actions"><button class="outline danger" id="attackBtn">Create scenario</button><button class="outline cyan" id="defenseBtn">Draft response</button></div></article>
-<article class="panel posture"><div class="panel-head"><div><p class="eyebrow">SIGNAL SUMMARY</p><h2>Threat posture</h2></div><button>•••</button></div><div class="signal-score"><div class="radial"><b id="postureValue">72</b><small>POSTURE</small></div><div><strong>Guarded</strong><p id="postureDetail">Baseline coverage is active in the virtual environment.</p></div></div><ul><li><i class="cyan-dot"></i>Identity controls <b>Monitored</b></li><li><i class="blue-dot"></i>Network controls <b>Observed</b></li><li><i class="green-dot"></i>Endpoint controls <b>Protected</b></li></ul></article></section>
-<section class="detail-grid"><article class="panel twin" id="twin"><div class="panel-head"><div><p class="eyebrow">03 / DIGITAL TWIN</p><h2>Environment topology</h2></div><span class="tag"><i></i> VIRTUAL</span></div><div class="topology"><div><b>◎</b><strong>Identity zone</strong><small>DECOY USER</small></div><i></i><div><b>▣</b><strong>Application tier</strong><small>SIMULATED SERVICE</small></div><i></i><div class="guard"><b>◈</b><strong>Guardrail layer</strong><small>POLICY CONTROL</small></div></div><p class="legend"><span>● Healthy path</span><span>● Observed signal</span><span>● Simulated control</span></p></article><article class="panel result"><div class="panel-head"><div><p class="eyebrow">04 / EVALUATION</p><h2>Strategy comparison</h2></div><span class="tag muted">CURRENT RUN</span></div><div id="outcome" class="outcome empty">No comparison has been run.</div><label>Attack pressure <b id="aBarLabel">0%</b></label><div class="bar attackbar"><i id="attackBar"></i></div><label>Defense readiness <b id="dBarLabel">0%</b></label><div class="bar defensebar"><i id="defenseBar"></i></div><p class="note">Scores represent simulated comparative signals, not real risk measurements.</p></article></section>
-<section class="detail-grid governance" id="governance"><article class="panel control"><div class="panel-head"><div><p class="eyebrow">05 / CONTROL SYNTHESIZER</p><h2>Proposed safeguard</h2></div><span class="control-status">AWAITING INPUT</span></div><p id="controlText">Generate a simulation-informed safeguard for human review.</p><button class="primary" id="controlBtn">Generate proposal →</button></article><article class="panel review"><div class="panel-head"><div><p class="eyebrow">06 / HUMAN GOVERNANCE</p><h2>Review decision</h2></div><span class="tag muted">REQUIRED</span></div><p id="reviewText">A named reviewer must decide before the prototype records the proposed control.</p><div class="buttons"><button class="approve" id="approveBtn">✓ Approve proposal</button><button class="reject" id="rejectBtn">× Reject</button></div></article></section>
-<section class="panel log"><div class="panel-head"><div><p class="eyebrow">ACTIVITY STREAM</p><h2>Simulation event records</h2></div><span class="tag muted">LATEST 12</span></div><ul id="eventLog"><li class="info"><time>—</time><span>Workspace initialized. Ready for simulation.</span></li></ul></section></main><footer><span>GAD-CE · Generative Attack–Defense Co-Evolution Engine</span><span>Research & demonstration prototype · Human oversight required</span></footer></div></div><script src="{{ url_for('static', filename='script.js') }}"></script></body></html>
+
+<section class="intro" id="overview"><div><p class="eyebrow">GENERATIVE ATTACK–DEFENSE CO-EVOLUTION ENGINE</p><h1>Security operations <em>console</em></h1><p>Evaluate defensive decision-making against synthetic scenarios within a controlled, non-production digital twin.</p></div><div class="intro-actions"><button class="primary" id="runBtn">▶ Run full simulation</button><button class="ghost" id="resetBtn">Reset</button></div></section>
+
+<div class="safe-banner"><b>SIMULATION ONLY</b><span>All activity, assets, identities, controls, and telemetry shown here are synthetic. No production environment is accessed or changed.</span><button>View scope →</button></div>
+
+<section class="metrics">
+  <article><div><span>EXPOSURE INDEX</span><strong id="risk">00<sup>/100</sup></strong><small id="riskNote">No active scenario</small></div><b class="red">⌁</b></article>
+  <article><div><span>SIMULATION HEALTH</span><strong id="status">Ready</strong><small>Virtual environment</small></div><b class="green">◌</b></article>
+  <article><div><span>SIMULATION RUNS</span><strong id="runs">00</strong><small>Current workspace</small></div><b class="blue">▷</b></article>
+  <article><div><span>REVIEW DECISIONS</span><strong id="decisions">0 / 0</strong><small>Approved / rejected</small></div><b class="cyan">✓</b></article>
+</section>
+
+<section class="case-grid" id="cases">
+  <article class="panel incident-panel">
+    <div class="panel-head"><div><p class="eyebrow">INCIDENT COMMAND CENTER</p><h2>Active simulation cases</h2></div><span class="tag muted"><b id="caseTotal">0</b> CASES</span></div>
+    <div class="case-columns"><span>CASE / SUMMARY</span><span>SEVERITY</span><span>STATUS</span><span>OWNER</span><span></span></div>
+    <div id="incidentList" class="incident-list"><div class="empty-cases">No cases yet. Run a full simulation to create a traceable incident.</div></div>
+  </article>
+
+  <article class="panel risk-panel">
+    <div class="panel-head"><div><p class="eyebrow">EXPLAINABLE RISK</p><h2>Current risk factors</h2></div><span class="tag muted">SIMULATED</span></div>
+    <div id="riskBreakdown" class="risk-breakdown">
+      <div><span>Threat severity</span><b>—</b></div>
+      <div><span>Asset sensitivity</span><b>—</b></div>
+      <div><span>Exposure context</span><b>—</b></div>
+      <div class="reduction"><span>Defense readiness</span><b>—</b></div>
+    </div>
+    <p class="note">The factor view explains the prototype score; it is not a production risk model.</p>
+  </article>
+</section>
+
+<section class="analytics-grid">
+  <article class="panel analytics">
+    <div class="panel-head"><div><p class="eyebrow">SIMULATION ANALYTICS</p><h2>Historical performance</h2></div><span class="tag muted">SESSION</span></div>
+    <div class="analytics-stats">
+      <div><strong id="successRate">0%</strong><span>Defense success</span></div>
+      <div><strong id="avgAttack">0</strong><span>Avg. attack</span></div>
+      <div><strong id="avgDefense">0</strong><span>Avg. defense</span></div>
+    </div>
+    <div class="domain-chart" id="domainChart">
+      <div><span>Identity</span><i><b></b></i><em>0</em></div>
+      <div><span>Network</span><i><b></b></i><em>0</em></div>
+      <div><span>Endpoint</span><i><b></b></i><em>0</em></div>
+      <div><span>Availability</span><i><b></b></i><em>0</em></div>
+    </div>
+  </article>
+
+  <article class="panel process">
+    <p class="eyebrow">INCIDENT LIFECYCLE</p><h2>Governed response flow</h2>
+    <ol>
+      <li><b>01</b><span><strong>Detect</strong><small>Synthetic signal creates a case</small></span></li>
+      <li><b>02</b><span><strong>Investigate</strong><small>Compare threat and response posture</small></span></li>
+      <li><b>03</b><span><strong>Decide</strong><small>Record human governance decision</small></span></li>
+      <li><b>04</b><span><strong>Close</strong><small>Finalize the simulated case</small></span></li>
+    </ol>
+  </article>
+</section>
+
+<section class="work-grid" id="operations">
+  <article class="panel sim">
+    <div class="panel-head"><div><p class="eyebrow">LIVE WORKBENCH</p><h2>Co-evolution simulation</h2></div><span class="state"><i></i> STANDING BY</span></div>
+
+    <div class="agent-flow">
+      <div class="agent attacker">
+        <div>◆ <small>01</small></div>
+        <p>THREAT AGENT</p><h3>Scenario generator</h3>
+        <span id="attackText">No synthetic scenario selected.</span>
+        <label>Attack pressure <b id="attackScore">—</b></label>
+        <div class="mini"><i id="attackMini"></i></div>
+      </div>
+
+      <div class="versus">│<b>VS</b>│</div>
+
+      <div class="agent defender">
+        <div>◈ <small>02</small></div>
+        <p>DEFENSE AGENT</p><h3>Response planner</h3>
+        <span id="defenseText">No simulated response selected.</span>
+        <label>Defense readiness <b id="defenseScore">—</b></label>
+        <div class="mini"><i id="defenseMini"></i></div>
+      </div>
+    </div>
+
+    <div class="panel-actions"><button class="outline danger" id="attackBtn">Generate scenario</button><button class="outline cyan" id="defenseBtn">Generate response</button></div>
+  </article>
+
+  <article class="panel posture">
+    <div class="panel-head"><div><p class="eyebrow">SIGNAL SUMMARY</p><h2>Threat posture</h2></div><button>•••</button></div>
+    <div class="signal-score"><div class="radial"><b id="postureValue">72</b><small>POSTURE</small></div><div><strong>Guarded</strong><p id="postureDetail">Baseline coverage is active in the virtual environment.</p></div></div>
+    <ul>
+      <li><i class="cyan-dot"></i>Identity controls <b>Monitored</b></li>
+      <li><i class="blue-dot"></i>Network controls <b>Observed</b></li>
+      <li><i class="green-dot"></i>Endpoint controls <b>Protected</b></li>
+    </ul>
+  </article>
+</section>
+
+<section class="detail-grid">
+  <article class="panel twin" id="twin">
+    <div class="panel-head"><div><p class="eyebrow">03 / DIGITAL TWIN</p><h2>Environment topology</h2></div><span class="tag"><i></i> VIRTUAL</span></div>
+    <div class="topology">
+      <div><b>◎</b><strong>Identity zone</strong><small>DECOY USER</small></div><i></i>
+      <div><b>▣</b><strong>Application tier</strong><small>SIMULATED SERVICE</small></div><i></i>
+      <div class="guard"><b>◈</b><strong>Guardrail layer</strong><small>POLICY CONTROL</small></div>
+    </div>
+    <p class="legend"><span>● Healthy path</span><span>● Observed signal</span><span>● Simulated control</span></p>
+  </article>
+
+  <article class="panel result">
+    <div class="panel-head"><div><p class="eyebrow">04 / EVALUATION</p><h2>Strategy comparison</h2></div><span class="tag muted">CURRENT RUN</span></div>
+    <div id="outcome" class="outcome empty">No comparison has been run.</div>
+    <label>Attack pressure <b id="aBarLabel">0%</b></label><div class="bar attackbar"><i id="attackBar"></i></div>
+    <label>Defense readiness <b id="dBarLabel">0%</b></label><div class="bar defensebar"><i id="defenseBar"></i></div>
+    <p class="note">Scores represent simulated comparative signals, not real risk measurements.</p>
+  </article>
+</section>
+
+<section class="detail-grid governance" id="governance">
+  <article class="panel control">
+    <div class="panel-head"><div><p class="eyebrow">05 / CONTROL SYNTHESIZER</p><h2>Proposed safeguard</h2></div><span class="control-status">AWAITING INPUT</span></div>
+    <p id="controlText">Generate a simulation-informed safeguard for human review.</p>
+    <button class="primary" id="controlBtn">Generate proposal →</button>
+  </article>
+
+  <article class="panel review">
+    <div class="panel-head"><div><p class="eyebrow">06 / HUMAN GOVERNANCE</p><h2>Review decision</h2></div><span class="tag muted">REQUIRED</span></div>
+    <p id="reviewText">A named reviewer must decide before the prototype records the proposed control.</p>
+    <div class="buttons"><button class="approve" id="approveBtn">✓ Approve proposal</button><button class="reject" id="rejectBtn">× Reject</button></div>
+  </article>
+</section>
+
+<section class="panel log">
+  <div class="panel-head"><div><p class="eyebrow">ACTIVITY STREAM</p><h2>Simulation event records</h2></div><span class="tag muted">LATEST 12</span></div>
+  <ul id="eventLog"><li class="info"><time>—</time><span>Workspace initialized. Ready for simulation.</span></li></ul>
+</section>
+
+</main><footer><span>GAD-CE · Generative Attack–Defense Co-Evolution Engine</span><span>Research & demonstration prototype · Human oversight required</span></footer></div></div><script src="{{ url_for('static', filename='script.js') }}"></script></body></html>
